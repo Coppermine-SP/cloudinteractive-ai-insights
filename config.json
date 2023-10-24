@@ -1,0 +1,20 @@
+{
+  "CredentialProvider" : "Json",
+  "JsonCredentialProvider" : {
+    "ObjectName": "Credentials",
+    "OpenAI_Key" : "OpenAI_API_Key",
+    "AzureCV_Key": "AzureCV_Key",
+    "AzureCV_Endpoint" : "AzureCV_Endpoint"
+  },
+  "CloudInteractiveCredentialProvider": {
+    "Endpoint": "https://secure.cloudint.corp",
+    "OpenAI_Key": "key/openai",
+    "AzureCV_Key": "key/azure_cv",
+    "AzureCV_Endpoint": "endpoint/azure_cv"
+  },
+  "Credentials" : {
+    "OpenAI_API_Key": "key/openai",
+    "AzureCV_Key": "key/azure_cv",
+    "AzureCV_Endpoint": "endpoint/azure_cv"
+  }
+}
