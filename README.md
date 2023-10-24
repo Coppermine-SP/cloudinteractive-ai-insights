@@ -10,9 +10,9 @@ Use Microsoft Azure Cognitive Service and OpenAI's ChatGPT API to help you focus
 * [Responsible use of Generative AI](#responsible-use-of-generative-ai)
 * [Features](#features)
 * [Requirements](#requirements)
+* [Configuration](#configuration)
 * [Installation](#installation)
 * [How to use](#how-to-use)
-* [Dependencies](#dependencies)
 * [Showcase](#showcase)
 
 ## Responsible use of Generative AI
@@ -30,5 +30,50 @@ This project should only be used as an auxiliary tool. Generative AI is not a so
 This project can easily integrate into Visual Studio Code via task.json.
 ## Requirements
 This project uses Microsoft Azure Cognitive Services and OpenAI ChatGPT. 
+Please note: Usage might incur charges.
 
-That requires your API keys and endpoints, and charges may apply.
+You will need:
+- **OpenAI API Key**
+- **Microsoft Azure Cognitive Services API Endpoint**
+- **Microsoft Azure Cognitive Services API Key**
+
+## Configuration
+config.json file must be present in the program directory.
+This file contains your API keys and endpoints. Ensure this file is kept secure to prevent unauthorized access.
+
+```
+{
+  "CredentialProvider" : "Json",
+  "JsonCredentialProvider" : {
+    "ObjectName": "Credentials",
+    "OpenAI_Key" : "OpenAI_API_Key",
+    "AzureCV_Key": "AzureCV_Key",
+    "AzureCV_Endpoint" : "AzureCV_Endpoint"
+  },
+  "CloudInteractiveCredentialProvider": {
+    "Endpoint": "https://secure.cloudint.corp",
+    "OpenAI_Key": "key/openai",
+    "AzureCV_Key": "key/azure_cv",
+    "AzureCV_Endpoint": "endpoint/azure_cv"
+  },
+  "Credentials" : {
+    "OpenAI_API_Key": "YOUR_OPENAI_KEY",
+    "AzureCV_Key": "YOUR_AZURECV_KEY",
+    "AzureCV_Endpoint": "YOUR_AZURECV_ENDPOINT"
+  }
+}
+```
+
+- **CredentialProvider**: `Json` or `CloudInteractive`.
+  
+  Use `Json` if fetching credentials directly from this configuration file.
+  or fetching credentials from CloudInteractive Credential API, use `CloudInteractive`.
+
+- **CloudInteractiveCredentialProvider**:
+
+  Defines CloudInteractive Credential API endpoints and options.
+  For more details, please refer to [https://docs.cloudint.corp/credential](https://docs.cloudint.corp/credential).
+
+- **Credentials**:
+
+  Enter your Microsoft Azure Cognitive Services API Endpoint and Key, OpenAI API Key. JsonCredentialProvider will fetch credentials from here.
