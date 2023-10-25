@@ -1,7 +1,7 @@
 # cloudinteractive-ai-insights
 This project is a collection of AI tools designed to assist with your assignments and projects.
 
-Use Microsoft Azure Cognitive Service and OpenAI's ChatGPT API to help you focus on what matters.
+Use Microsoft Azure Cognitive Service and OpenAI's ChatGPT API to help you focus on what truly matters.
 
 
 
@@ -12,7 +12,7 @@ Use Microsoft Azure Cognitive Service and OpenAI's ChatGPT API to help you focus
 * [Requirements](#requirements)
 * [Configuration](#configuration)
 * [Installation](#installation)
-* [How to use](#how-to-use)
+* [How to Use](#how-to-use)
 * [Showcase](#showcase)
 
 ## Responsible use of Generative AI
@@ -70,10 +70,15 @@ This file contains your API keys and endpoints. Ensure this file is kept secure 
   If fetching credentials from CloudInteractive Credential API, use `CloudInteractive`.
 
 - **CloudInteractiveCredentialProvider**:
-
+  
+  **Note:** Not for Public use, only works within CloudInteractive Corporate Intranet.
+  
   Defines CloudInteractive Credential API endpoints and options.
   For more details, please refer to [https://docs.cloudint.corp/credential](https://docs.cloudint.corp/credential).
-
+  
 - **Credentials**:
 
   Enter your Microsoft Azure Cognitive Services API Endpoint and Key, OpenAI API Key. JsonCredentialProvider will fetch credentials from here.
+
+  ## How to Use
+  
