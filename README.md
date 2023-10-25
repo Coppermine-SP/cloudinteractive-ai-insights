@@ -67,7 +67,7 @@ This file contains your API keys and endpoints. Ensure this file is kept secure 
 - **CredentialProvider**: `Json` or `CloudInteractive`.
   
   Use `Json` if fetching credentials directly from this configuration file.
-  or fetching credentials from CloudInteractive Credential API, use `CloudInteractive`.
+  If fetching credentials from CloudInteractive Credential API, use `CloudInteractive`.
 
 - **CloudInteractiveCredentialProvider**:
 
