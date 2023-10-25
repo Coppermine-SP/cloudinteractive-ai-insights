@@ -30,7 +30,8 @@ This project should only be used as an auxiliary tool. Generative AI is not a so
 This project can easily integrate into Visual Studio Code via task.json.
 ## Requirements
 This project uses Microsoft Azure Cognitive Services and OpenAI ChatGPT. 
-Please note: Usage might incur charges.
+
+**Note:** Usage might incur charges.
 
 You will need:
 - **OpenAI API Key**
