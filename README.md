@@ -19,6 +19,8 @@ Use Microsoft Azure Cognitive Service and OpenAI's ChatGPT API to help you focus
 **WARNING:**
 This project should only be used as an auxiliary tool. Generative AI is not a solution provider for your assignment. Relying on this tool to fully complete your assignments is a clear act of cheating. 
 
+[책임감 있는 AI 사용이란 무엇입니까? (국문)](https://github.com/Coppermine-SP/Coppermine-SP/blob/main/ResponsibleUseOfAI_KR.md)
+
 **Please agree to the responsible use of Generative AI before utilizing this tool.**
 
 ## Features
