@@ -25,7 +25,7 @@ This project should only be used as an auxiliary tool. Generative AI is not a so
 **Please agree to the responsible use of Generative AI before utilizing this tool.**
 
 ## Features
-- **Problem Transcription**:   Easily transfer problems from question papers directly into a Jupyter Notebook.
+- **Question Transcription**:   Easily transfer questions from question papers directly into a Jupyter Notebook.
 - **Page Summarization**:   Get concise summaries of specific page contents.
 - **Code Extraction**:   Extract code from images containing sample code effortlessly.
 - **Custom Prompt**:   Use ChatGPT to process content from images or document pages as you need.
