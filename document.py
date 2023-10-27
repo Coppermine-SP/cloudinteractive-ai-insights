@@ -2,20 +2,14 @@
 # Copyright (C) 2023 CloudInteractive.
 
 from pdf2image import convert_from_path
-import argparse
+from typing import List
 import io
 import json
 
 
-def ConvertToImageStreams(args: argparse.Namespace) -> [io.BytesIO]:
-    if args.pages == []:
-        print("[Error]: Page option is required!")
-        raise ValueError
-
-    pages = list(map(int, args.pages))
-    path = args.filename
+def ConvertToImageStreams(pages: List[int], path: str) -> List[io.BytesIO]:
     array = []
-    print(f"ConvertToImageStreams : {args.filename} / {args.pages}")
+    print(f"ConvertToImageStreams : {path} / {len(pages)} pages.")
     for page in pages:
         print(f"Converting page {page} to image..")
         buffer = io.BytesIO()

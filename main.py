@@ -8,10 +8,10 @@ import openai_api as openai
 from credentialprovider import *
 import document
 import json
-import image
+import azure_api
 import argparse
 import os.path
-import actions
+import tasks
 
 CONFIG_FILE_NAME = "config.json"
 global credentials
@@ -26,8 +26,12 @@ def main(args):
 
 
     if not get_credentials(): return
-    print(credentials)
+    azure_api.Init(credentials["AzureCV_Key"], credentials["AzureCV_Endpoint"])
+    if args.task[0] not in tasks.actions:
+        print(f"[ERROR] Task '{args.task[0]}' is not valid task.")
+        return
 
+    tasks.actions[args.task[0]](args)
 
 def get_credentials() -> bool:
     global credentials
@@ -43,7 +47,7 @@ def get_credentials() -> bool:
             print(f"[ERROR] {providerName} is not vaild CredentialProvider. Please check config.json file!")
             return False
         providerConfig = config[providerName + "CredentialProvider"]
-        print(f"Provider: {providerName}CredentialProvider")
+        print(f"Provider: {providerName}CredentialProvider\n")
         providerObject = JsonCredentialProvider(CONFIG_FILE_NAME, providerConfig["ObjectName"]) \
             if providerName == "Json" else CloudinteractiveCredentialProvider(providerConfig["Endpoint"])
     except Exception as e:
@@ -59,7 +63,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(nargs='+', help='Example) example.pdf', dest='filename')
     parser.add_argument('--pages', '-p', nargs='*', help='Example) 11 12 13', default=[], dest='pages')
-    parser.add_argument('--action', '-a', nargs="*", help="Example) CodeExteraction", default="", dest='action')
+    parser.add_argument('--task', '-t', nargs="*", help="Example) CodeExteraction", default="None", dest='task')
     parser.add_argument('--out', '-o', nargs='*', help='Example) Chapter_5', default=[], dest='out')
     parser.add_argument('--verbose', action="store_true", dest="verbose")
     main(parser.parse_args())

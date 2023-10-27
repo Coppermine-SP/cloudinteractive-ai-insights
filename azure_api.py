@@ -7,30 +7,27 @@ from msrest.authentication import CognitiveServicesCredentials
 import io
 import time
 
-_isInited = False
-_vision_client = None
-global verbose
-verbose = False
+isInited = False
 
 def Init(vision_key: str, vision_endpoint: str):
-    _vision_endpoint = vision_endpoint
-    _vision_key = vision_key
-    _vision_client = ComputerVisionClient(vision_endpoint, CognitiveServicesCredentials(vision_key))
-    _isInited = True
+    global __vision_client
+    __vision_client = ComputerVisionClient(vision_endpoint, CognitiveServicesCredentials(vision_key))
+    isInited = True
 
 
-def OCRFromImageStreams(streams: [io.BytesIO]) -> [str]:
+def OCRFromImageStreams(streams: [io.BytesIO], verbose: bool) -> [str]:
+    global __vision_client
     print(f"OCRFromImageStreams: {len(streams)} images.")
     count = 1;
     result_lst = []
     for buffer in streams:
         print(f"[{count}/{len(streams)}] - ", end="")
         result = ""
-        response = _vision_client.read_in_stream(buffer, raw=True)
+        response = __vision_client.read_in_stream(buffer, raw=True)
         operation_location = response.headers["Operation-Location"]
         operation_id = operation_location.split("/")[-1]
         while True:
-            read_result = _vision_client.get_read_result(operation_id)
+            read_result = __vision_client.get_read_result(operation_id)
             if read_result.status not in ['notStarted', 'running']:
                 break
             time.sleep(1)
@@ -41,10 +38,10 @@ def OCRFromImageStreams(streams: [io.BytesIO]) -> [str]:
                 for line in text_result.lines:
                     result += line.text
             result_lst.append(result)
-            if verbose: print(f"[verbose]:\n{result}\n")
             print("Completed.")
+            if verbose: print(f"[verbose]:\n{result}\n")
         else:
             print("Failed!")
         count += 1
-    print("All tasks are completed!\n")
+    print("OCRFromImageStreams: Complete!\n")
     return result_lst
