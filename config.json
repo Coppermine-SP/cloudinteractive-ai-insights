@@ -1,5 +1,5 @@
 {
-  "CredentialProvider" : "Json",
+  "CredentialProvider" : "CloudInteractive",
   "JsonCredentialProvider" : {
     "ObjectName": "Credentials",
     "OpenAI_Key" : "OpenAI_API_Key",
@@ -13,8 +13,8 @@
     "AzureCV_Endpoint": "endpoint/azure_cv"
   },
   "Credentials" : {
-    "OpenAI_API_Key": "key/openai",
-    "AzureCV_Key": "key/azure_cv",
-    "AzureCV_Endpoint": "endpoint/azure_cv"
+    "OpenAI_API_Key": "YOUR_OPENAI_API_KEY",
+    "AzureCV_Key": "YOUR_AZURECV_KEY",
+    "AzureCV_Endpoint": "YOUR_AZURECV_ENDPOINT"
   }
 }

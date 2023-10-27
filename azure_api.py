@@ -9,7 +9,8 @@ import time
 
 _isInited = False
 _vision_client = None
-
+global verbose
+verbose = False
 
 def Init(vision_key: str, vision_endpoint: str):
     _vision_endpoint = vision_endpoint
@@ -19,7 +20,7 @@ def Init(vision_key: str, vision_endpoint: str):
 
 
 def OCRFromImageStreams(streams: [io.BytesIO]) -> [str]:
-    print("Waiting for Microsoft Azure Congitive Service API...")
+    print(f"OCRFromImageStreams: {len(streams)} images.")
     count = 1;
     result_lst = []
     for buffer in streams:
@@ -40,9 +41,10 @@ def OCRFromImageStreams(streams: [io.BytesIO]) -> [str]:
                 for line in text_result.lines:
                     result += line.text
             result_lst.append(result)
+            if verbose: print(f"[verbose]:\n{result}\n")
             print("Completed.")
         else:
             print("Failed!")
         count += 1
-    print("All tasks are completed!")
+    print("All tasks are completed!\n")
     return result_lst

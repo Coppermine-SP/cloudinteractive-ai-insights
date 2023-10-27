@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+
 # cloudinteractive-ai-insights
 # Copyright (C) 2023 CloudInteractive.
+
 import azure_api as azure
 import openai_api as openai
 from credentialprovider import *
@@ -7,16 +10,21 @@ import document
 import json
 import image
 import argparse
+import os.path
+import actions
 
 CONFIG_FILE_NAME = "config.json"
 global credentials
-
 
 def main(args):
     print("CloudInteractive ai-insights 1.0.0")
     print("Copyright(C) 2023 CloudInteractive.\n")
 
-    global credentials
+    if not os.path.exists(CONFIG_FILE_NAME):
+        print(f"[ERROR] There is no {CONFIG_FILE_NAME} file!\nPlease see the repository readme to configure.")
+        return
+
+
     if not get_credentials(): return
     print(credentials)
 
@@ -24,11 +32,6 @@ def main(args):
 def get_credentials() -> bool:
     global credentials
     credentials = {"OpenAI_Key": None, "AzureCV_Endpoint": None, "AzureCV_Key": None}
-
-    config: json
-    providerObject: CredentialProvider
-    providerName: str
-    providerConfig: json
 
     print("Loading credentials...")
     try:
@@ -56,6 +59,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(nargs='+', help='Example) example.pdf', dest='filename')
     parser.add_argument('--pages', '-p', nargs='*', help='Example) 11 12 13', default=[], dest='pages')
-    parser.add_argument('--action', '-a', nargs="*", help="Example) CodeExteraction", dest='action')
+    parser.add_argument('--action', '-a', nargs="*", help="Example) CodeExteraction", default="", dest='action')
     parser.add_argument('--out', '-o', nargs='*', help='Example) Chapter_5', default=[], dest='out')
+    parser.add_argument('--verbose', action="store_true", dest="verbose")
     main(parser.parse_args())

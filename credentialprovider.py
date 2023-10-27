@@ -3,6 +3,9 @@
 from abc import *
 import requests
 import json
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class CredentialProvider(metaclass=ABCMeta):
@@ -12,6 +15,7 @@ class CredentialProvider(metaclass=ABCMeta):
 
     def __init__(self, endpoint: str):
         self.endpoint = endpoint
+
 
 class CloudinteractiveCredentialProvider(CredentialProvider):
     def __init__(self, endpoint: str):
@@ -24,8 +28,9 @@ class CloudinteractiveCredentialProvider(CredentialProvider):
         else:
             return response.text
 
+
 class JsonCredentialProvider(CredentialProvider):
-    def __init__(self, fileName:str, ObjectName: str):
+    def __init__(self, fileName: str, ObjectName: str):
         super().__init__(fileName)
         self.ObjectName = ObjectName
         with open(fileName, "r") as handle:
