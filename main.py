@@ -12,26 +12,34 @@ import azure_api
 import argparse
 import os.path
 import tasks
+import openai_api
 
 CONFIG_FILE_NAME = "config.json"
 global credentials
 
+
 def main(args):
     print("CloudInteractive ai-insights 1.0.0")
     print("Copyright(C) 2023 CloudInteractive.\n")
-
-    if not os.path.exists(CONFIG_FILE_NAME):
+    if not os.path.exists(f"{os.getcwd()}\\{CONFIG_FILE_NAME}"):
         print(f"[ERROR] There is no {CONFIG_FILE_NAME} file!\nPlease see the repository readme to configure.")
         return
 
-
     if not get_credentials(): return
     azure_api.Init(credentials["AzureCV_Key"], credentials["AzureCV_Endpoint"])
+    openai_api.Init(credentials["OpenAI_Key"], args.no_warnings)
     if args.task[0] not in tasks.actions:
         print(f"[ERROR] Task '{args.task[0]}' is not valid task.")
         return
 
+    if args.out == "":
+        print("WARNING: Outfile name is not configured!\nUsing default outfile name.\n")
+        args.out = args.filename[0].split('.')[0]
+    else:
+        args.out = args.out
+
     tasks.actions[args.task[0]](args)
+
 
 def get_credentials() -> bool:
     global credentials
@@ -64,6 +72,7 @@ if __name__ == '__main__':
     parser.add_argument(nargs='+', help='Example) example.pdf', dest='filename')
     parser.add_argument('--pages', '-p', nargs='*', help='Example) 11 12 13', default=[], dest='pages')
     parser.add_argument('--task', '-t', nargs="*", help="Example) CodeExteraction", default="None", dest='task')
-    parser.add_argument('--out', '-o', nargs='*', help='Example) Chapter_5', default=[], dest='out')
+    parser.add_argument('--out', '-o', nargs='*', help='Example) Chapter_5', default="", dest='out')
     parser.add_argument('--verbose', action="store_true", dest="verbose")
+    parser.add_argument('--no-warnings', action="store_true", dest="no_warnings")
     main(parser.parse_args())
