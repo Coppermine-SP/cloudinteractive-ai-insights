@@ -5,6 +5,7 @@ from pdf2image import convert_from_path
 from typing import List
 import io
 import json
+import PIL.Image
 
 
 def ConvertToImageStreams(pages: List[int], path: str) -> List[io.BytesIO]:
@@ -19,6 +20,14 @@ def ConvertToImageStreams(pages: List[int], path: str) -> List[io.BytesIO]:
         array.append(buffer)
     print("Complete!\n")
     return array
+
+def LoadImagetoStream(path: str) -> List[io.BytesIO]:
+    img = PIL.Image.open(path).convert("RGB")
+    buffer = io.BytesIO()
+    img.save(buffer, format="PNG")
+    buffer.seek(0)
+    return [buffer]
+
 
 def create_notebook(cells):
     notebook_content = {

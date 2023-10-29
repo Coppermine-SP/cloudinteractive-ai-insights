@@ -15,7 +15,7 @@ def Init(vision_key: str, vision_endpoint: str):
     isInited = True
 
 
-def OCRFromImageStreams(streams: [io.BytesIO], verbose: bool) -> [str]:
+def OCRFromImageStreams(streams: [io.BytesIO], verbose: bool = False) -> [str]:
     global __vision_client
     print(f"OCRFromImageStreams: {len(streams)} images.")
     count = 1;
