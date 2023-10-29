@@ -11,7 +11,6 @@ Use Microsoft Azure Cognitive Service and OpenAI's ChatGPT API to help you focus
 * [Features](#features)
 * [Requirements](#requirements)
 * [Configuration](#configuration)
-* [Installation](#installation)
 * [How to Use](#how-to-use)
 * [Showcase](#showcase)
 
@@ -83,6 +82,23 @@ This file contains your API keys and endpoints. Ensure this file is kept secure 
 - **Credentials**:
 
   Enter your Microsoft Azure Cognitive Services API Endpoint and Key, OpenAI API Key. JsonCredentialProvider will fetch credentials from here.
+  
+## How to Use
+Clone this repository and execute the `main.py` with the required arguments:
+```
+python3 main.py {location of source file} {additional argument}
+```
+**Additional Arguments**:
+- `--task`, `-t` : Specifies the task.   Options: `QuestionTranscipt`, `CodeExtrect`, `PageSummary`, `CustomPrompt`
+- `--page`, `-p` : Specifies pages to import from the source document.
+- `--out`, `-o` : Specifies out file path.
+- `--prompt` : Specifies custom prompt for the CustomPrompt task.
+- `--verbose` : Enable verbose status messages.
+- `--no-warnings` : Suppress any warnings.
 
-  ## How to Use
+
+Example:
+```
+python3 main.py "F:\MyDocument\PythonBook.pdf" --task QuestionTranscript --page 217 218 --out "F:\Paper\Python_Chapter_4.ipynb" --no-warnings
+```
   
