@@ -36,7 +36,7 @@ def main(args):
         print("WARNING: Outfile name is not configured!\nUsing default outfile name.\n")
         args.out = args.filename[0].split('.')[0]
     else:
-        args.out = args.out
+        args.out = args.out[0]
 
     tasks.actions[args.task[0]](args)
 
