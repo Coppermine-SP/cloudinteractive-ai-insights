@@ -73,6 +73,7 @@ if __name__ == '__main__':
     parser.add_argument('--pages', '-p', nargs='*', help='Example) 11 12 13', default=[], dest='pages')
     parser.add_argument('--task', '-t', nargs="*", help="Example) CodeExteraction", default="None", dest='task')
     parser.add_argument('--out', '-o', nargs='*', help='Example) Chapter_5', default="", dest='out')
+    parser.add_argument('--prompt', default="", dest="prompt")
     parser.add_argument('--verbose', action="store_true", dest="verbose")
     parser.add_argument('--no-warnings', action="store_true", dest="no_warnings")
     main(parser.parse_args())
