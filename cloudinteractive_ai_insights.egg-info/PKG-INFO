@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: cloudinteractive-ai-insights
+Version: 1.0.0
+Summary: Collection of AI tools designed to assist with your assignments and projects.
+Home-page: https://github.com/Coppermine-SP/cloudinteractive-ai-insights
+Author: CoppermineSP
+Author-email: copperminesp@cloudinteractive.net
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9

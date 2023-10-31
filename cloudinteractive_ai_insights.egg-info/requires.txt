@@ -1,0 +1,4 @@
+azure-cognitiveservices-vision-computervision
+openai
+pdf2image
+tiktoken
