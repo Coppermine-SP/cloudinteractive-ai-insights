@@ -125,12 +125,13 @@ ai-insights "F:\MyDocument\PythonBook.pdf" --task QuestionTranscript --page 217 
 ## Showcase
 **Page summarization from the scanned document:**
 
-  <img src="sample/doc_1.png" width=800px>
-  <img src="sample/result_1.png" width=500px>
+  <img src="sample/doc_1.png">
+  <img src="sample/result_1.png">
 
 
 
 **Question transcription from scanned document:**
 
-  <img src="sample/doc_2.png" width=800px>
-  <img src="sample/result_2.png" width=500px>
+  <img src="sample/doc_2.png">
+  <img src="sample/result_2.png">
+  <img src="sample/result_3.png">
