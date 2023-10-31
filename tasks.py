@@ -34,16 +34,46 @@ def QuestionTranscript(args: argparse.Namespace):
                     cells.append(("markdown", f"**{idx}. {__questionNormalization(question)}**"))
                     cells.append(("code", ""))
                     idx += 1
-        notebook_file.write(document.create_notebook(cells))
+        notebook_file.write(document.CreateNotebook(cells))
     print("Complete!")
 
 
 def PageSummary(args: argparse.Namespace):
-    pass
+    print("Task: PageSummary")
+    stream = __loadStream(args)
+    if stream is None:
+        return
+
+    role = "이 페이지의 내용을 마크다운으로 상세하게 정리하라."
+    text = ["\n".join(azure_api.OCRFromImageStreams(stream, args.verbose))]
+    response = openai_api.ChatCompletion(text, role, openai_api.OpenAIModel.gpt_4, args.verbose)
+    if response is None:
+        return
+    print("Result:")
+    for text in response:
+        print(f"\n{text}\n")
+    __writeToFile(args, response)
+    print("Complete!")
 
 
-def CodeExtrect(args: argparse.Namespace):
-    pass
+def CodeExtract(args: argparse.Namespace):
+    print("Task: CodeExtrect")
+    stream = __loadStream(args)
+    if stream is None:
+        return
+
+    role = "OCR한 문자열에서 소스 코드만 해당 코드가 사용하는 언어의 문법에 맞게 수정하여 출력하라."
+    text = azure_api.OCRFromImageStreams(stream, args.verbose)
+    response = openai_api.ChatCompletion(text, role, openai_api.OpenAIModel.gpt_4, args.verbose)
+    if response is None:
+        return
+
+    print("Result:")
+    for text in response:
+        print(f"\n{text}\n")
+    __writeToFile(args, response)
+    print("Complete!")
+
 
 def CustomPrompt(args: argparse.Namespace):
     print("Task: CustomPrompt")
@@ -63,6 +93,7 @@ def CustomPrompt(args: argparse.Namespace):
     print("Result:")
     for text in response:
         print(f"\n{text}\n")
+    __writeToFile(args, response)
     print("Complete!")
 
 def __loadStream(args: argparse.Namespace) -> Optional[List[io.BytesIO]]:
@@ -88,6 +119,15 @@ def __questionNormalization(string: str) -> str:
     else:
         return string
 
+def __writeToFile(args: argparse.Namespace, contents: List[str]):
+    if args.out == args.filename[0].split('.')[0]:
+        print("Result has not been written in a file because out option is not specified.")
+        return
+
+    with open(args.out, "w", encoding='utf-8') as handle:
+        for text in contents:
+            handle.write(text + "\n")
+
 
 global actions
-actions = {"QuestionTranscript": QuestionTranscript, "PageSummary": PageSummary, "CodeExtract": CodeExtrect, "CustomPrompt" : CustomPrompt}
+actions = {"QuestionTranscript": QuestionTranscript, "PageSummary": PageSummary, "CodeExtract": CodeExtract, "CustomPrompt" : CustomPrompt}
