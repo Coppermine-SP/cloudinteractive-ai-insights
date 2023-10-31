@@ -15,6 +15,7 @@ setup(
     author="CoppermineSP",
     license="MIT",
     author_email="copperminesp@cloudinteractive.net",
+    packages=["cloudinteractive_ai_insights"],
     url="https://github.com/Coppermine-SP/cloudinteractive-ai-insights",
     install_requires=["azure-cognitiveservices-vision-computervision", "openai", "pdf2image", "tiktoken"],
     python_requires=">=3.9",
