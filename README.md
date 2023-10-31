@@ -41,9 +41,18 @@ You will need:
 - **Microsoft Azure Cognitive Services API Key**
 
 ## Configuration
-config.json file must be present in the program directory.
-This file contains your API keys and endpoints. Ensure this file is kept secure to prevent unauthorized access.
+**config.json file must be present in the below directory:**
 
+Linux, macOS
+```
+home/{username}/.cloudinteractive/ai-insights/config.json
+```
+Windows
+```
+C:\Users\{username}\.cloudinteractive\ai-insights\config.json
+```
+This file contains your API keys and endpoints. Ensure this file is kept secure to prevent unauthorized access.
+If the configuration file does not exist, the below default configuration file will be created.
 ```
 {
   "CredentialProvider" : "Json",
@@ -54,10 +63,10 @@ This file contains your API keys and endpoints. Ensure this file is kept secure 
     "AzureCV_Endpoint" : "AzureCV_Endpoint"
   },
   "CloudInteractiveCredentialProvider": {
-    "Endpoint": "https://secure.cloudint.corp",
-    "OpenAI_Key": "key/openai",
-    "AzureCV_Key": "key/azure_cv",
-    "AzureCV_Endpoint": "endpoint/azure_cv"
+    "Endpoint": "https://secure.icloudint.corp",
+    "OpenAI_Key": "key/openai_api",
+    "AzureCV_Key": "key/azure_cv_api",
+    "AzureCV_Endpoint": "endpoint/azure_cv_api"
   },
   "Credentials" : {
     "OpenAI_API_Key": "YOUR_OPENAI_KEY",
