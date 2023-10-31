@@ -51,7 +51,7 @@ def main():
     parser.add_argument('--no-warnings', action="store_true", dest="no_warnings")
     args = parser.parse_args()
 
-    print("CloudInteractive ai-insights 1.0.0")
+    print("CloudInteractive ai-insights 1.0.4")
     print("Copyright(C) 2023 CloudInteractive.\n")
 
     if not __check_config_file(): return
