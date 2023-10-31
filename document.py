@@ -21,6 +21,7 @@ def ConvertToImageStreams(pages: List[int], path: str) -> List[io.BytesIO]:
     print("Complete!\n")
     return array
 
+
 def LoadImagetoStream(path: str) -> List[io.BytesIO]:
     img = PIL.Image.open(path).convert("RGB")
     buffer = io.BytesIO()
@@ -29,7 +30,7 @@ def LoadImagetoStream(path: str) -> List[io.BytesIO]:
     return [buffer]
 
 
-def create_notebook(cells):
+def CreateNotebook(cells):
     notebook_content = {
         "cells": [],
         "metadata": {},
