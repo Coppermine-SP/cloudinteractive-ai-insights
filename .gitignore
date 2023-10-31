@@ -9,6 +9,7 @@
 .idea/**/shelf
 .idea/*
 build/*
+dist/*
 *.egg-info/*
 
 # AWS User-specific
