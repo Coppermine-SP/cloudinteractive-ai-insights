@@ -112,6 +112,6 @@ ai-insights {location of source file} {additional argument}
 
 Example:
 ```
-python3 main.py "F:\MyDocument\PythonBook.pdf" --task QuestionTranscript --page 217 218 --out "F:\Paper\Python_Chapter_4.ipynb" --no-warnings
+ai-insights "F:\MyDocument\PythonBook.pdf" --task QuestionTranscript --page 217 218 --out "F:\Paper\Python_Chapter_4.ipynb" --no-warnings
 ```
   
