@@ -84,10 +84,23 @@ This file contains your API keys and endpoints. Ensure this file is kept secure 
   Enter your Microsoft Azure Cognitive Services API Endpoint and Key, OpenAI API Key. JsonCredentialProvider will fetch credentials from here.
   
 ## How to Use
-Clone this repository and execute the `main.py` with the required arguments:
+Clone this repository and execute the `main.py` with the required arguments
+or you can install package from PyPI and run.
+
+**Install package via pip:**
+```
+pip install cloudinteractive_ai_insights
+```
+
+
+**How to run script:**
 ```
 python3 main.py {location of source file} {additional argument}
 ```
+```
+ai-insights {location of source file} {additional argument}
+```
+
 **Additional Arguments**:
 - `--task`, `-t` : Specifies the task.   Options: `QuestionTranscipt`, `CodeExtrect`, `PageSummary`, `CustomPrompt`
 - `--page`, `-p` : Specifies pages to import from the source document.
