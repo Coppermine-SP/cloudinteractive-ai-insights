@@ -13,7 +13,7 @@ import cloudinteractive_ai_insights.azure_api as azure_api
 from cloudinteractive_ai_insights.credentialprovider import *
 
 __CONFIG_FILE_NAME = f"config.json"
-__CONFIG_PATH = f"{Path.home()}\\.cloudinteractive\\ai-insights\\"
+__CONFIG_PATH = f"{Path.home()}{os.sep}.cloudinteractive{os.sep}ai-insights{os.sep}"
 __CONFIG_FILE_PATH = f"{__CONFIG_PATH}{__CONFIG_FILE_NAME}"
 __DEFAULT_CONFIG_FILE_CONTENT = '''{
   "CredentialProvider" : "Json",
