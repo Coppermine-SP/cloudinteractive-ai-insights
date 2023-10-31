@@ -93,21 +93,19 @@ If the configuration file does not exist, the below default configuration file w
   Enter your Microsoft Azure Cognitive Services API Endpoint and Key, OpenAI API Key. JsonCredentialProvider will fetch credentials from here.
   
 ## How to Use
-Clone this repository and execute the `main.py` with the required arguments
-or you can install package from PyPI and run.
 
 **Install package via pip:**
 ```
 pip install cloudinteractive_ai_insights
 ```
-
+Alternatively, you can clone this repository and run main.py.
 
 **How to run script:**
 ```
-python3 main.py {location of source file} {additional argument}
-```
-```
 ai-insights {location of source file} {additional argument}
+```
+```
+python3 main.py {location of source file} {additional argument}
 ```
 
 **Additional Arguments**:
