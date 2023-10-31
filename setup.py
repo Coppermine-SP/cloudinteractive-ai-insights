@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cloudinteractive_ai_insights",
-    version="1.0.0",
+    version="1.0.2",
     description="Collection of AI tools designed to assist with your assignments and projects.",
     author="CoppermineSP",
     author_email="copperminesp@cloudinteractive.net",
