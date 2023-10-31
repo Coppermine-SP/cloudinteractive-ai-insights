@@ -51,7 +51,7 @@ def main():
     parser.add_argument('--no-warnings', action="store_true", dest="no_warnings")
     args = parser.parse_args()
 
-    print("CloudInteractive ai-insights 1.0.4")
+    print("CloudInteractive ai-insights 1.0.5")
     print("Copyright(C) 2023 CloudInteractive.\n")
 
     if not __check_config_file(): return
@@ -101,7 +101,7 @@ def __get_credentials() -> bool:
             return False
         providerConfig = config[providerName + "CredentialProvider"]
         print(f"Provider: {providerName}CredentialProvider\n")
-        providerObject = JsonCredentialProvider(__CONFIG_FILE_NAME, providerConfig["ObjectName"]) \
+        providerObject = JsonCredentialProvider(__CONFIG_FILE_PATH, providerConfig["ObjectName"]) \
             if providerName == "Json" else CloudinteractiveCredentialProvider(providerConfig["Endpoint"])
     except Exception as e:
         print(f"[ERROR] Exception in CredentialProvider : {e}")

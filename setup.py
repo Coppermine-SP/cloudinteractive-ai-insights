@@ -8,7 +8,7 @@ except:
 
 setup(
     name="cloudinteractive_ai_insights",
-    version="1.0.4",
+    version="1.0.5",
     description="Collection of AI tools designed to assist with your assignments and projects.",
     long_description=long_description,
     long_description_content_type="text/markdown",
