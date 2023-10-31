@@ -121,4 +121,16 @@ Example:
 ```
 ai-insights "F:\MyDocument\PythonBook.pdf" --task QuestionTranscript --page 217 218 --out "F:\Paper\Python_Chapter_4.ipynb" --no-warnings
 ```
-  
+
+## Showcase
+**Page summarization from the scanned document:**
+
+  <img src="sample/doc_1.png" width=800px>
+  <img src="sample/result_1.png" width=500px>
+
+
+
+**Question transcription from scanned document:**
+
+  <img src="sample/doc_2.png" width=800px>
+  <img src="sample/result_2.png" width=500px>
