@@ -1,2 +1,0 @@
-[console_scripts]
-ai-insights = cloudinteractive_ai_insights.main:main
