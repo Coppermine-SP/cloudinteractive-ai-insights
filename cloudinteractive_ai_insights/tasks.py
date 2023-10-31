@@ -3,9 +3,9 @@
 import argparse
 import io
 
-import cloudinteractive_ai_insights.document
-import cloudinteractive_ai_insights.azure_api
-import cloudinteractive_ai_insights.openai_api
+import cloudinteractive_ai_insights.document as document
+import cloudinteractive_ai_insights.azure_api as azure_api
+import cloudinteractive_ai_insights.openai_api as openai_api
 from typing import List
 from typing import Optional
 
