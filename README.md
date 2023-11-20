@@ -96,7 +96,7 @@ If the configuration file does not exist, the below default configuration file w
 
 **Install package via pip:**
 ```
-pip install cloudinteractive_ai_insights
+pip install cloudinteractive-ai-insights
 ```
 Alternatively, you can clone this repository and run main.py.
 
